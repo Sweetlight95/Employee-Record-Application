@@ -36,12 +36,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         Optional<Employee> query = employeeRepository.findByFirstName(employeeDto.getFirstName());
         if(query.isPresent()){
-            throw new EmployeeLogicException("Employee with firstname" + employeeDto.getFirstName() + " already exists");
+            throw new EmployeeLogicException("Employee with firstname " + employeeDto.getFirstName() + " already exists");
         }
         Employee employee = new Employee();
         employee.setFirstName(employeeDto.getFirstName());
         employee.setEmail(employeeDto.getEmail());
-        employee.setPhoneNumber(employee.getPhoneNumber());
+        employee.setPhoneNumber(employeeDto.getPhoneNumber());
+        employee.setLastName(employeeDto.getLastName());
 
         return employeeRepository.save(employee);
     }
