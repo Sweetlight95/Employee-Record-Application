@@ -87,7 +87,7 @@ class EmployeeRepositoryTest {
 
           employeeRepository.deleteById(20L);
           Employee retrievedEmployee = employeeRepository.findById(20L).orElse(null);
-        assertThat(retrievedEmployee).isNull();
+          assertThat(retrievedEmployee).isNull();
 
           assertThat(employee.getLastName()).isEqualTo("Kim");
           assertThat(employee.getFirstName()).isEqualTo("Kimoyo");
